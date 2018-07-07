@@ -79,6 +79,9 @@ set hlsearch
 " Use case insensitive search, except when using capital letters
 set ignorecase
 set smartcase
+
+highlight ColorColumn ctermbg=gray
+set colorcolumn=120
  
 " Allow backspacing over autoindent, line breaks and start of insert action
 set backspace=indent,eol,start
@@ -127,6 +130,8 @@ set notimeout ttimeout ttimeoutlen=200
 " Use <F11> to toggle between 'paste' and 'nopaste'
 set pastetoggle=<F11>
  
+" No swap files
+set noswapfile
  
 "------------------------------------------------------------
 " Indentation options {{{1
@@ -142,10 +147,13 @@ set expandtab
 " Indentation settings for using hard tabs for indent. Display tabs as
 " four characters wide.
 "set shiftwidth=4
-"set tabstop=4
+set tabstop=4
 "
-set background=dark
-colorscheme solarized
+"set background=dark
+"colorscheme solarized
+"colorscheme Monokai
+colorscheme seattle
+"colorscheme desert
 
 ""Cscope settings
 if has("cscope")
@@ -169,3 +177,15 @@ nnoremap <Leader>e :cs find e <C-R>=expand("<cword>")<CR><CR>
 nnoremap <Leader>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
 nnoremap <Leader>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nnoremap <Leader>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+map <leader>te :terminal<cr>
+
+" VIM split settings
+nnoremap <leader>h <C-W>h<CR>
+nnoremap <leader>l <C-W>l<CR>
+nnoremap <leader>j <C-W>j<CR>
+nnoremap <leader>k <C-W>k<CR>
+set splitbelow
+set splitright
+
+let g:tagbar_usearrows = 1
+nnoremap <leader>tt :TagbarToggle<CR>

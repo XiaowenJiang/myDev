@@ -23,6 +23,11 @@ install_apt_pkgs()
     apt-get install -y sshpass cscope checkinstall dh-autoreconf libglib2.0-dev libncurses5-dev libpython-dev libssl-dev libpopt-dev  python-pip python-setuptools libpython-dev libsm-dev libice-dev gcc libaio-dev libnuma-dev libgnome2-dev libgnomeui-dev   libgtk2.0-dev libatk1.0-dev libbonoboui2-dev   libcairo2-dev libx11-dev libxpm-dev libxt-dev
 }
 
+install_pip_pkgs()
+{
+    pip install jedi
+}
+
 
 config_vim()
 {
@@ -47,8 +52,9 @@ if [ ! -d $WORKSPACE ]; then
 fi
 # Validate bash
 validate_bash
-# Install vim as needed.
+# Install Necessary packages.
 install_apt_pkgs
+install_pip_pkgs
 # Install necessary libs.
 install_vim
 config_vim
