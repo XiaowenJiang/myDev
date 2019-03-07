@@ -89,6 +89,8 @@ set backspace=indent,eol,start
 " When opening a new line and no filetype-specific indenting is enabled, keep
 " the same indent as the line you're currently on. Useful for READMEs, etc.
 set autoindent
+
+set smartindent
  
 " Stop certain movements from always going to the first character of a line.
 " While this behaviour deviates from that of Vi, it does what most users
@@ -152,8 +154,9 @@ set tabstop=4
 "set background=dark
 "colorscheme solarized
 "colorscheme Monokai
-colorscheme seattle
+"colorscheme seattle
 "colorscheme desert
+colorscheme elflord
 
 ""Cscope settings
 if has("cscope")
@@ -189,3 +192,13 @@ set splitright
 
 let g:tagbar_usearrows = 1
 nnoremap <leader>tt :TagbarToggle<CR>
+
+" Uncomment the following to have Vim jump to the last position when
+" reopening a file
+if has("autocmd")
+  " When editing a file, always jump to the last cursor position
+  autocmd BufReadPost *
+  \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+  \   exe "normal g'\"" |
+  \ endif
+endif
